@@ -2,7 +2,7 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
-/* Animal Lifeline design tokens (Rebuild Guide §8).
+/* PawBridge design tokens (Rebuild Guide §8).
    Palette: warm ivory #F7F5EF (primary backgrounds), sage #DDE9DF
    (secondary surfaces), teal #087F70 (trust, navigation, primary
    actions), forest #183B35 (headings, dark surfaces), soft coral

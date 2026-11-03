@@ -94,7 +94,7 @@ export default function AdminDashboard() {
         <h1 className="font-display text-2xl font-bold text-[#183B35] mb-4">Admin dashboard</h1>
         <nav aria-label="Admin sections" className="flex flex-wrap gap-2 mb-5">
           {NAV.map(([to, label]) => (
-            <Link key={to} to={to} className={`px-4 py-2 rounded-full text-sm font-bold ${location.pathname === to ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{label}</Link>
+            <Link key={to} to={to} className={`px-4 py-2.5 rounded-full text-sm font-bold ${location.pathname === to ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{label}</Link>
           ))}
         </nav>
         <Routes>

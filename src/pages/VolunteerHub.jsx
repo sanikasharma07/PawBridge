@@ -123,7 +123,7 @@ export default function VolunteerHub() {
             ['General', 'general'],
             ['Emergency-linked', 'emergency'],
           ].map(([label, value]) => (
-            <button key={label} onClick={() => setLinked(value)} className={`px-4 py-2 rounded-full text-sm font-bold ${linked === value ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{label}</button>
+            <button key={label} onClick={() => setLinked(value)} className={`px-4 py-2.5 rounded-full text-sm font-bold ${linked === value ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{label}</button>
           ))}
         </div>
 
@@ -180,7 +180,7 @@ export default function VolunteerHub() {
           <form onSubmit={submitHero} className="space-y-3 border-t border-slate-100 pt-4">
             <input required value={hero.title} onChange={(e) => setHero({ ...hero, title: e.target.value })} placeholder="Story title" className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm" />
             <textarea required rows={3} maxLength={2000} value={hero.story} onChange={(e) => setHero({ ...hero, story: e.target.value })} placeholder="Your story (max 2000 characters)" className="w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm" />
-            <input type="file" accept="image/*" onChange={(e) => setHeroPhoto(e.target.files[0] || null)} className="w-full text-sm" />
+            <input type="file" accept="image/*" aria-label="Photo for your story (optional)" onChange={(e) => setHeroPhoto(e.target.files[0] || null)} className="w-full text-sm" />
             <button className="px-5 py-2.5 bg-[#087F70] text-white text-sm font-bold rounded-xl hover:bg-[#183B35]">Share story</button>
           </form>
         </section>

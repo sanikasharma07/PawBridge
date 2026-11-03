@@ -27,7 +27,7 @@ export default function AdminEmergencies() {
       {error && <p className="text-sm text-rose-600 bg-rose-50 border border-rose-200 rounded-xl p-3 flex gap-2"><AlertTriangle className="w-5 h-5 shrink-0" />{error}</p>}
       <div className="flex flex-wrap gap-2">
         {['', ...STATUSES].map((s) => (
-          <button key={s || 'all'} onClick={() => setFilter(s)} className={`px-3 py-2 rounded-full text-xs font-bold ${filter === s ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{s || 'All statuses'}</button>
+          <button key={s || 'all'} onClick={() => setFilter(s)} className={`px-3 py-2.5 rounded-full text-xs font-bold ${filter === s ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{s || 'All statuses'}</button>
         ))}
       </div>
       <p className="text-xs text-slate-500">Admins can view cases here. There is no admin flag-as-spam or delete-emergency endpoint in the backend, so no such action is offered.</p>

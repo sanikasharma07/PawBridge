@@ -52,9 +52,9 @@ export default function AdminVerifications() {
           <p className="text-xs text-slate-500">{[item.address?.city, item.address?.state].filter(Boolean).join(', ')}</p>
           <p className="text-xs text-amber-700">Documents cannot be previewed here — the pending-list endpoint does not return them.</p>
           <div className="flex flex-wrap gap-2 items-center">
-            <button onClick={() => decide(kind, item._id, 'verified')} className="px-4 py-2 bg-[#087F70] text-white text-xs font-bold rounded-full hover:bg-[#183B35]">Approve</button>
+            <button onClick={() => decide(kind, item._id, 'verified')} className="px-4 py-2.5 bg-[#087F70] text-white text-xs font-bold rounded-full hover:bg-[#183B35]">Approve</button>
             <input value={rejectReason[`${kind}:${item._id}`] || ''} onChange={(e) => setRejectReason((r) => ({ ...r, [`${kind}:${item._id}`]: e.target.value }))} placeholder="Rejection reason (required to reject)" className="flex-1 min-w-[200px] px-3 py-2 border border-slate-200 rounded-full text-xs" />
-            <button onClick={() => decide(kind, item._id, 'rejected')} className="px-4 py-2 bg-white border border-rose-200 text-rose-700 text-xs font-bold rounded-full hover:bg-rose-50">Reject</button>
+            <button onClick={() => decide(kind, item._id, 'rejected')} className="px-4 py-2.5 bg-white border border-rose-200 text-rose-700 text-xs font-bold rounded-full hover:bg-rose-50">Reject</button>
           </div>
         </article>
       ))}

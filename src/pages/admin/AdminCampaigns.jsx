@@ -47,8 +47,8 @@ export default function AdminCampaigns() {
           <input value={reason} onChange={(e) => setReason(e.target.value)} placeholder="e.g. Campaign misrepresents its purpose" className="mt-1 w-full px-3 py-2.5 border border-slate-200 rounded-xl text-sm font-normal" />
         </label>
         <div className="flex gap-2">
-          <button onClick={() => setShowRemoved(false)} className={`px-4 py-2 rounded-full text-sm font-bold ${!showRemoved ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>Live</button>
-          <button onClick={() => setShowRemoved(true)} className={`px-4 py-2 rounded-full text-sm font-bold ${showRemoved ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>Removed</button>
+          <button onClick={() => setShowRemoved(false)} className={`px-4 py-2.5 rounded-full text-sm font-bold ${!showRemoved ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>Live</button>
+          <button onClick={() => setShowRemoved(true)} className={`px-4 py-2.5 rounded-full text-sm font-bold ${showRemoved ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>Removed</button>
         </div>
       </div>
       <p className="text-xs text-slate-500">Removal is soft and reversible: removed campaigns disappear from public lists but stay visible to their NGO and to admins.</p>

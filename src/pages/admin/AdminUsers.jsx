@@ -56,7 +56,7 @@ export default function AdminUsers() {
         </label>
         <div className="flex gap-2">
           {['', 'user', 'ngo', 'vet', 'admin'].map((r) => (
-            <button key={r || 'all'} onClick={() => setRoleFilter(r)} className={`px-3 py-2 rounded-full text-xs font-bold ${roleFilter === r ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{r || 'All roles'}</button>
+            <button key={r || 'all'} onClick={() => setRoleFilter(r)} className={`px-3 py-2.5 rounded-full text-xs font-bold ${roleFilter === r ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{r || 'All roles'}</button>
           ))}
         </div>
       </div>

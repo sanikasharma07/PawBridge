@@ -196,7 +196,7 @@ export default function NearbyNGOs() {
                   { key: 'verified', label: `Verified (${verified.length})` },
                   { key: 'external', label: `Not registered (${nonVerified.length})` },
                 ].map((g) => (
-                  <button key={g.key} onClick={() => setGroup(g.key)} className={`px-3 py-1.5 rounded-full text-xs font-bold ${group === g.key ? 'bg-[#087F70] text-white' : 'text-slate-600'}`}>{g.label}</button>
+                  <button key={g.key} onClick={() => setGroup(g.key)} className={`px-3 py-2.5 rounded-full text-xs font-bold ${group === g.key ? 'bg-[#087F70] text-white' : 'text-slate-600'}`}>{g.label}</button>
                 ))}
               </div>
               <label className="flex items-center gap-2 text-sm font-bold text-slate-700">Radius

@@ -6,7 +6,7 @@ is **read-only** for this project: never modify it from here.
 
 ## Stack
 
-React + Vite, React Router, Tailwind CSS v4, axios, Leaflet + react-leaflet,
+React + Vite, React Router, Redux Toolkit, Tailwind CSS v4, axios, Leaflet + react-leaflet,
 lucide-react. Payments use the Razorpay Checkout script loaded at runtime;
 the backend returns the publishable key with every order, so the frontend
 holds no secrets.
@@ -30,8 +30,24 @@ origin if it differs from `http://localhost:3000`.
 - Only `GET /api/v1/nearby/help` is public; every other data page shows an
   honest sign-in state to logged-out visitors.
 - External OpenStreetMap listings in Nearby Help are always labelled
-  "Not registered on Animal Lifeline" and can never accept rescues.
+  "Not registered on PawBridge" and can never accept rescues.
 - Never commit a `.env` file. The frontend needs no secrets at all.
+
+## Status
+
+All phases 0–8 are complete and pushed to `sanikasharma07/PawBridge`
+(main). Every phase was verified against a live run of the backend at
+`80378a9` (auth, Nearby Help, emergency lifecycle, NGO/vet profiles,
+campaigns, supplies, volunteer, foster/adopt, reports + moderation +
+notifications) except the items below, which need real third-party
+credentials or a live third-party service:
+
+- A full paid Razorpay order + verify needs real Razorpay test-mode keys
+  (dummy keys cannot create an order; the donate→verify code path is
+  implemented exactly per the backend contract).
+- A live Overpass response was never observed from this environment
+  (public instance at capacity during testing); the OSM-unavailable
+  fallback branch is implemented and exercised.
 
 ## Build order
 

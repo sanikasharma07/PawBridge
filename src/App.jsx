@@ -1,10 +1,11 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense, useState, lazy } from 'react'
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router'
 import ProtectedRoute from '@/components/common/ProtectedRoute'
 import BottomNav from '@/components/common/BottomNav'
 import LoginPage, { SessionWatcher } from '@/pages/LoginPage'
 import SignupPage from '@/pages/SignupPage'
-import NearbyNGOs from '@/pages/NearbyNGOs'
+import LandingPage from '@/pages/LandingPage'
+const NearbyNGOs = lazy(() => import('@/pages/NearbyNGOs'))
 import ActiveRescueTracker from '@/pages/ActiveRescueTracker'
 import EmergencySOSModal from '@/components/emergency/EmergencySOSModal'
 import NGOOnboarding from '@/pages/NGOOnboarding'
@@ -36,7 +37,6 @@ const Placeholder = ({ title, phase }) => (
 
 const Page = (title, phase) => () => <Placeholder title={title} phase={phase} />
 
-const LandingPage = Page('PawBridge', 'Phase 8 (design polish)')
 
 
 function NotFoundPage() {
@@ -84,7 +84,7 @@ function Shell() {
       <EmergencySOSModal open={sosOpen} onClose={() => setSosOpen(false)} />
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage onReport={() => setSosOpen(true)} />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/nearby-ngos" element={<NearbyNGOs />} />

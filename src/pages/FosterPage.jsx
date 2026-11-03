@@ -75,11 +75,11 @@ export default function FosterPage() {
         {error && <p className="text-sm text-rose-600 bg-rose-50 border border-rose-200 rounded-xl p-3 flex gap-2"><AlertTriangle className="w-5 h-5 shrink-0" />{error}</p>}
         <div className="flex flex-wrap gap-2">
           {SPECIES_FILTERS.map((s) => (
-            <button key={s} onClick={() => setSpeciesFilter(s)} className={`px-3 py-1.5 rounded-full text-xs font-bold ${speciesFilter === s ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{s}</button>
+            <button key={s} onClick={() => setSpeciesFilter(s)} className={`px-3 py-2.5 rounded-full text-xs font-bold ${speciesFilter === s ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{s}</button>
           ))}
           <span className="w-px bg-slate-200 mx-1" />
           {STATUS_FILTERS.map((s) => (
-            <button key={s} onClick={() => setStatusFilter(s)} className={`px-3 py-1.5 rounded-full text-xs font-bold ${statusFilter === s ? 'bg-[#183B35] text-white' : 'bg-white border border-slate-200'}`}>{s}</button>
+            <button key={s} onClick={() => setStatusFilter(s)} className={`px-3 py-2.5 rounded-full text-xs font-bold ${statusFilter === s ? 'bg-[#183B35] text-white' : 'bg-white border border-slate-200'}`}>{s}</button>
           ))}
         </div>
         {loading && <p className="text-sm text-slate-500">Loading animals…</p>}
@@ -117,7 +117,7 @@ export default function FosterPage() {
             {applyError && <p className="text-sm text-rose-600 bg-rose-50 border border-rose-200 rounded-xl p-3">{applyError}</p>}
             <div className="flex gap-2">
               {['Foster', 'Adoption'].map((t) => (
-                <button key={t} onClick={() => setApplyType(t)} className={`flex-1 py-2 rounded-full text-sm font-bold ${applyType === t ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{t}</button>
+                <button key={t} onClick={() => setApplyType(t)} className={`flex-1 py-2.5 rounded-full text-sm font-bold ${applyType === t ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{t}</button>
               ))}
             </div>
             <label className="block text-sm font-bold text-slate-700">Your experience with animals *

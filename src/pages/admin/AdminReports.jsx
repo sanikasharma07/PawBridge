@@ -67,7 +67,7 @@ export default function AdminReports() {
       {notice && <p className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-xl p-3">{notice}</p>}
       <div className="flex flex-wrap gap-2">
         {['', ...STATUSES].map((s) => (
-          <button key={s || 'all'} onClick={() => setFilter(s)} className={`px-4 py-2 rounded-full text-sm font-bold ${filter === s ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{s || 'All'}</button>
+          <button key={s || 'all'} onClick={() => setFilter(s)} className={`px-4 py-2.5 rounded-full text-sm font-bold ${filter === s ? 'bg-[#087F70] text-white' : 'bg-white border border-slate-200'}`}>{s || 'All'}</button>
         ))}
       </div>
       <section className="space-y-2">
