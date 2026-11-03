@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router'
-import { PawPrint, AlertTriangle } from 'lucide-react'
+import { LogoMark } from '@/components/common/Logo'
+import { AlertTriangle } from 'lucide-react'
 import { loginUser, clearError, homePathForRole } from '@/store/slices/authSlice'
 
 const PROTECTED_PREFIXES = ['/dashboard', '/profile', '/tracker', '/ngo/dashboard', '/vet/dashboard', '/admin']
@@ -47,7 +48,7 @@ export default function LoginPage() {
     <div className="min-h-screen bg-[#F7F5EF] flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white border border-slate-200 rounded-3xl shadow-sm p-6 sm:p-8">
         <div className="flex items-center gap-2 mb-2">
-          <span className="w-10 h-10 rounded-xl bg-[#DDE9DF] flex items-center justify-center text-[#087F70]"><PawPrint className="w-5 h-5" /></span>
+          <LogoMark size={40} />
           <h1 className="font-display text-2xl font-bold text-[#183B35]">Welcome back to PawBridge</h1>
         </div>
         <p className="text-sm text-slate-600 mb-6">Sign in to report and track emergencies, donate, pledge supplies and volunteer.</p>

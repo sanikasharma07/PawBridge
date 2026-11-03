@@ -1,5 +1,8 @@
 import React, { Suspense, useState, lazy } from 'react'
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router'
+import { useSelector } from 'react-redux'
+import Logo from '@/components/common/Logo'
+import { homePathForRole } from '@/store/slices/authSlice'
 import ProtectedRoute from '@/components/common/ProtectedRoute'
 import BottomNav from '@/components/common/BottomNav'
 import LoginPage, { SessionWatcher } from '@/pages/LoginPage'
@@ -65,6 +68,7 @@ function PageLoader() {
 function Shell() {
   const location = useLocation()
   const [sosOpen, setSosOpen] = useState(false)
+  const { isAuthenticated, user } = useSelector((state) => state.auth)
   const hideBottomNav = ['/ngo/dashboard', '/vet/dashboard', '/admin'].some((p) => location.pathname.startsWith(p))
   const hideTopBar = ['/login', '/signup'].some((p) => location.pathname.startsWith(p))
   return (
@@ -73,10 +77,18 @@ function Shell() {
       {!hideTopBar && (
         <header className="bg-white border-b border-[#DDE9DF] px-4 py-3 sticky top-0 z-30">
           <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
-            <Link to="/" className="font-display text-lg font-bold text-[#183B35]">PawBridge</Link>
-            <div className="flex items-center gap-3">
+            <Logo size={36} />
+            <div className="flex items-center gap-2 sm:gap-3">
               <Link to="/nearby-ngos" className="text-sm font-bold text-[#087F70] hover:underline hidden sm:inline">Nearby Help</Link>
-              <button onClick={() => setSosOpen(true)} className="px-4 py-2 bg-[#C96A4A] text-white text-sm font-bold rounded-full hover:bg-[#183B35]">Report emergency</button>
+              {isAuthenticated ? (
+                <Link to={homePathForRole(user?.role)} className="px-4 py-2.5 bg-[#087F70] text-white text-sm font-bold rounded-full hover:bg-[#183B35]">My dashboard</Link>
+              ) : (
+                <>
+                  <Link to="/login" className="px-3 py-2.5 text-sm font-bold text-[#183B35] hover:underline">Sign in</Link>
+                  <Link to="/signup" className="px-4 py-2.5 bg-[#087F70] text-white text-sm font-bold rounded-full hover:bg-[#183B35]">Create account</Link>
+                </>
+              )}
+              <button onClick={() => setSosOpen(true)} className="px-4 py-2.5 bg-[#C96A4A] text-white text-sm font-bold rounded-full hover:bg-[#183B35]">Report emergency</button>
             </div>
           </div>
         </header>
