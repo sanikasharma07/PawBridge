@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+/* Animal Lifeline design tokens (Rebuild Guide §8).
+   Palette: warm ivory #F7F5EF (primary backgrounds), sage #DDE9DF
+   (secondary surfaces), teal #087F70 (trust, navigation, primary
+   actions), forest #183B35 (headings, dark surfaces), soft coral
+   #E7A18A (emergency emphasis, highlights only). Soft coral is too
+   light for text or buttons, so coral-dark #C96A4A is the usable shade
+   derived from it. */
+@theme {
+  --color-ivory: #F7F5EF;
+  --color-sage: #DDE9DF;
+  --color-brand-teal: #087F70;
+  --color-forest: #183B35;
+  --color-coral: #E7A18A;
+  --color-coral-dark: #C96A4A;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #F7F5EF;
+  color: #334155;
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible keyboard focus everywhere, including on ivory backgrounds. */
+:focus-visible {
+  outline: 3px solid #087F70;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
