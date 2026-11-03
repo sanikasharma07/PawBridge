@@ -78,8 +78,14 @@ function Shell() {
         <header className="bg-white border-b border-[#DDE9DF] px-4 py-3 sticky top-0 z-30">
           <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
             <Logo size={36} />
+            <nav aria-label="Main" className="hidden lg:flex items-center gap-5 text-sm font-bold text-slate-700">
+              <Link to="/nearby-ngos" className="hover:text-[#087F70]">Nearby Help</Link>
+              <Link to="/adopt" className="hover:text-[#087F70]">Adopt</Link>
+              <Link to="/foster" className="hover:text-[#087F70]">Foster</Link>
+              <Link to="/volunteer" className="hover:text-[#087F70]">Volunteer</Link>
+              <Link to={isAuthenticated ? homePathForRole(user?.role) : '/login'} className="hover:text-[#087F70]">Dashboard</Link>
+            </nav>
             <div className="flex items-center gap-2 sm:gap-3">
-              <Link to="/nearby-ngos" className="text-sm font-bold text-[#087F70] hover:underline hidden sm:inline">Nearby Help</Link>
               {isAuthenticated ? (
                 <Link to={homePathForRole(user?.role)} className="px-4 py-2.5 bg-[#087F70] text-white text-sm font-bold rounded-full hover:bg-[#183B35]">My dashboard</Link>
               ) : (
